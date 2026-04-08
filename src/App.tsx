@@ -131,7 +131,7 @@ const Preloader = () => {
             }}
             transition={{ duration: 2, repeat: Infinity }}
             src="/logo.png" 
-            alt="IAH Logo" 
+            alt="IAH.AI Logo" 
             className="w-full h-full object-contain" 
           />
         </motion.div>
@@ -544,7 +544,7 @@ const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () => void
           >
             <div className="flex items-center justify-between mb-12">
               <div className="flex items-center gap-4">
-                <img src="/logo.png" alt="IAH Logo" className="w-10 h-10 object-contain" />
+                <img src="/logo.png" alt="IAH.AI Logo" className="w-10 h-10 object-contain" />
                 <span className="font-display font-black text-2xl tracking-tighter">IAH.AI</span>
               </div>
               <button 
@@ -2193,7 +2193,7 @@ const Footer = ({ onOpenFeedback }: { onOpenFeedback: (type?: "bug" | "suggestio
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-8 group cursor-pointer" onClick={() => navigate('/')}>
               <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-                <img src="/logo.png" alt="IAH Logo" className="w-full h-full object-contain" />
+                <img src="/logo.png" alt="IAH.AI Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-display font-bold text-2xl md:text-3xl tracking-tighter">IAH.AI</span>
             </div>
