@@ -72,6 +72,7 @@ import { FeedbackModal } from "./components/FeedbackModal";
 import { FeedbackBot } from "./components/FeedbackBot";
 import { ViewerFeedback } from "./components/ViewerFeedback";
 import PageTransition from "./components/PageTransition";
+import { Logo } from "./components/Logo";
 
 // --- Components ---
 
@@ -119,22 +120,7 @@ const Preloader = () => {
         />
 
         {/* Logo Container */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="relative z-10 w-20 h-20 p-4 glass rounded-2xl border-white/10 flex items-center justify-center"
-        >
-          <motion.img 
-            animate={{ 
-              filter: ["brightness(1) contrast(1)", "brightness(1.5) contrast(1.2)", "brightness(1) contrast(1)"]
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
-            src="/logo.png" 
-            alt="IAH.AI Logo" 
-            className="w-full h-full object-contain" 
-          />
-        </motion.div>
+        <Logo size="xl" glow={false} className="relative z-10" />
         
         {/* Corner Accents */}
         {[0, 90, 180, 270].map((rotation, i) => (
@@ -467,18 +453,7 @@ const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () => void
       )}
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-4 group focus-visible:outline-none">
-          <motion.div 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-10 h-10 relative"
-          >
-            <div className="absolute inset-0 bg-brand-green/20 blur-xl rounded-full group-hover:bg-brand-green/40 transition-all" />
-            <img src="/logo.png" alt="IAH.AI Logo" className="w-full h-full object-contain relative z-10" />
-          </motion.div>
-          <div className="flex flex-col">
-            <span className="font-display font-black text-2xl tracking-tighter leading-none group-hover:text-brand-green transition-colors">IAH.AI</span>
-            <span className="text-[8px] font-bold uppercase tracking-[0.4em] text-white/30">Ecosystem</span>
-          </div>
+          <Logo showText />
         </Link>
 
         {/* Desktop Nav */}
@@ -543,10 +518,7 @@ const Navbar = ({ theme, toggleTheme }: { theme: string, toggleTheme: () => void
             className="fixed inset-0 top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-3xl z-[150] p-8 flex flex-col lg:hidden"
           >
             <div className="flex items-center justify-between mb-12">
-              <div className="flex items-center gap-4">
-                <img src="/logo.png" alt="IAH.AI Logo" className="w-10 h-10 object-contain" />
-                <span className="font-display font-black text-2xl tracking-tighter">IAH.AI</span>
-              </div>
+              <Logo showText />
               <button 
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-12 h-12 rounded-2xl glass flex items-center justify-center"
@@ -2191,12 +2163,9 @@ const Footer = ({ onOpenFeedback }: { onOpenFeedback: (type?: "bug" | "suggestio
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-20 mb-24 md:mb-32">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-8 group cursor-pointer" onClick={() => navigate('/')}>
-              <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-                <img src="/logo.png" alt="IAH.AI Logo" className="w-full h-full object-contain" />
-              </div>
-              <span className="font-display font-bold text-2xl md:text-3xl tracking-tighter">IAH.AI</span>
-            </div>
+            <Link to="/" className="inline-block mb-8">
+              <Logo size="lg" showText />
+            </Link>
             <p className="text-text/50 max-w-sm leading-relaxed text-base md:text-lg font-light mb-8">
               Intelligent At Hand. Redefining human evolution through the seamless integration of artificial intelligence and human wisdom.
             </p>
