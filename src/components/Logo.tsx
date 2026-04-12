@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import logo from "../assets/logo.png";
 
 interface LogoProps {
   className?: string;
@@ -12,7 +13,7 @@ export const Logo: React.FC<LogoProps> = ({
   className = "", 
   size = 'md', 
   showText = false,
-  glow = true 
+  glow = true,
 }) => {
   const sizes = {
     sm: 'w-8 h-8',
@@ -39,7 +40,7 @@ export const Logo: React.FC<LogoProps> = ({
           <div className="absolute inset-0 bg-brand-green/20 blur-xl rounded-full animate-pulse" />
         )}
         <img 
-          src="/logo.png" 
+          src={logo} 
           alt="IAH.AI Logo" 
           className="w-full h-full object-contain relative z-10" 
         />

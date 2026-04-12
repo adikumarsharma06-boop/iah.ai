@@ -61,7 +61,8 @@ import {
   BarChart3,
   Quote,
   Bug,
-  Lightbulb
+  Lightbulb,
+  Rocket
 } from "lucide-react";
 import FeaturesPage from "./pages/FeaturesPage";
 import GoalTrackerPage from "./pages/GoalTrackerPage";
@@ -878,34 +879,7 @@ const About = ({ isHome = false }: { isHome?: boolean, roadmapStep?: number, roa
         </div>
 
         {/* What is IAH.AI? Section */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center mb-40 lg:mb-60">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative order-2 lg:order-1"
-          >
-            <div className="aspect-video rounded-[40px] lg:rounded-[60px] overflow-hidden glass-dark p-1 border border-white/10 relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/20 via-brand-green/20 to-brand-orange/20 opacity-30" />
-              <div className="relative h-full w-full rounded-[38px] lg:rounded-[58px] overflow-hidden bg-black/40 flex items-center justify-center p-8 lg:p-12">
-                <div className="text-center">
-                  <div className="flex justify-center gap-4 lg:gap-6 mb-6 lg:mb-8">
-                    <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }} className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-brand-blue/20 flex items-center justify-center border border-brand-blue/30">
-                      <Cpu className="w-6 h-6 lg:w-8 lg:h-8 text-brand-blue" />
-                    </motion.div>
-                    <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }} className="w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl bg-brand-green/20 flex items-center justify-center border border-brand-green/30">
-                      <Users className="w-6 h-6 lg:w-8 lg:h-8 text-brand-green" />
-                    </motion.div>
-                  </div>
-                  <h3 className="text-2xl lg:text-4xl font-display font-bold mb-4 lg:mb-6">The Intelligence Hub</h3>
-                  <p className="text-white/60 text-base lg:text-lg font-light leading-relaxed">
-                    A decentralized ecosystem where AI precision meets human intuition.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto text-center mb-40 lg:mb-60">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -919,24 +893,24 @@ const About = ({ isHome = false }: { isHome?: boolean, roadmapStep?: number, roa
                 }
               }
             }}
-            className="order-1 lg:order-2"
           >
             {!isHome && (
               <>
                 <motion.div 
                   variants={{
-                    hidden: { opacity: 0, x: 20 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
                   }}
-                  className="flex items-center gap-4 mb-6 lg:mb-8"
+                  className="flex items-center justify-center gap-4 mb-6 lg:mb-8"
                 >
                   <div className="w-12 h-px bg-brand-blue" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-blue">The Identity</span>
+                  <div className="w-12 h-px bg-brand-blue" />
                 </motion.div>
                 <motion.h2 
                   variants={{
-                    hidden: { opacity: 0, x: 20 },
-                    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
                   }}
                   className="text-4xl md:text-8xl font-display font-bold mb-8 lg:mb-12 tracking-tighter leading-[0.9]"
                 >
@@ -946,31 +920,31 @@ const About = ({ isHome = false }: { isHome?: boolean, roadmapStep?: number, roa
             )}
             <div className="space-y-6 lg:space-y-8 text-lg lg:text-xl text-white/40 leading-relaxed font-light">
               {isHome ? (
-                <div className="space-y-6">
-                  <p className="text-white font-medium">
+                <div className="space-y-12">
+                  <p className="text-white font-medium text-2xl md:text-3xl max-w-2xl mx-auto">
                     IAH.AI makes AI creation simple for everyone.
                   </p>
-                  <ul className="space-y-4">
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-brand-green" />
-                      <span>No-code AI builder</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-brand-green" />
-                      <span>All tools in one platform</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-brand-green" />
-                      <span>Fast deployment</span>
-                    </li>
-                    <li className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-brand-green" />
-                      <span>Beginner-friendly system</span>
-                    </li>
-                  </ul>
-                  <p className="text-brand-green font-bold mt-8">
-                    👉 Anyone can build AI tools in minutes
-                  </p>
+                  <div className="grid sm:grid-cols-3 gap-8">
+                    {[
+                      { title: "No-code AI builder", icon: Cpu },
+                      { title: "All tools in one platform", icon: Zap },
+                      { title: "Fast deployment", icon: Rocket }
+                    ].map((item, i) => (
+                      <motion.div
+                        key={i}
+                        variants={{
+                          hidden: { opacity: 0, y: 20 },
+                          visible: { opacity: 1, y: 0 }
+                        }}
+                        className="glass p-8 rounded-3xl border border-white/5 flex flex-col items-center gap-4"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center border border-brand-green/20">
+                          <item.icon className="w-6 h-6 text-brand-green" />
+                        </div>
+                        <span className="text-sm font-bold uppercase tracking-widest text-white/80">{item.title}</span>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <div className="space-y-6">
